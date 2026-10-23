@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pace Zero Santa Cruz — Grupo de Corrida</title>
+  <meta name="description" content="Pace Zero Santa Cruz: grupo de corrida de Santa Cruz do Rio Pardo. Ninguém começa rápido, todo mundo começa do zero.">
+  <link rel="canonical" href="https://pacezero.com.br/">
+  <link rel="icon" href="assets/img/logo.png">
+  <meta name="theme-color" content="#0a0a0b">
+
+  <!-- Prévia ao compartilhar no WhatsApp, Instagram, Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pacezero.com.br/">
+  <meta property="og:title" content="Pace Zero Santa Cruz — Grupo de Corrida">
+  <meta property="og:description" content="Correr junto, ir mais longe. Grupo de corrida de Santa Cruz do Rio Pardo: próximas provas, eventos, pódios e fotos.">
+  <meta property="og:image" content="https://pacezero.com.br/assets/img/compartilhar.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,800;1,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo" id="topo">
+  <a href="#inicio" class="topo-logo"><img src="assets/img/logo.png" alt="Pace Zero Santa Cruz"></a>
+  <nav class="menu" id="menu">
+    <a href="#sobre">Sobre</a>
+    <a href="#corridas">Corridas</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#realizados">Realizados</a>
+    <a href="#podios">Pódios</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#pace">Calculadora</a>
+    <a href="#entrar" class="btn btn-sm">Quero correr</a>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- INÍCIO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+  <div class="hero-conteudo">
+    <p class="tag">Grupo de corrida · Santa Cruz do Rio Pardo</p>
+    <h1>Todo mundo começa<br><span>do zero.</span></h1>
+    <p class="hero-sub">Correr junto, ir mais longe.</p>
+    <div class="hero-acoes">
+      <a href="#entrar" class="btn">Quero fazer parte</a>
+      <a href="#corridas" class="btn btn-ghost">Próximas corridas</a>
+    </div>
+  </div>
+  <div class="contagem" id="contagem"></div>
+</section>
+
+<!-- SOBRE -->
+<section class="secao" id="sobre">
+  <div class="container sobre">
+    <div>
+      <p class="tag">Quem somos</p>
+      <h2>Do primeiro passo<br>à <span>meia maratona</span></h2>
+      <p>O Pace Zero nasceu em junho de 2026 com uma ideia simples: ninguém começa rápido, todo mundo começa do zero.</p>
+      <p>Reunimos iniciantes que estão dando os primeiros passos e atletas que disputam provas de 5 km, 10 km e meia maratona. Treinamos juntos durante a semana e representamos Santa Cruz nas corridas da região.</p>
+    </div>
+    <div class="numeros" id="numeros"></div>
+  </div>
+</section>
+
+<!-- PRÓXIMAS CORRIDAS -->
+<section class="secao secao-escura" id="corridas">
+  <div class="container">
+    <p class="tag">Calendário</p>
+    <h2>Próximas <span>corridas</span></h2>
+    <div class="corridas" id="listaCorridas"></div>
+  </div>
+</section>
+
+<!-- EVENTOS -->
+<section class="secao" id="eventos">
+  <div class="container">
+    <p class="tag">Agenda do grupo</p>
+    <h2>Eventos <span>Pace Zero</span></h2>
+    <div class="eventos" id="listaEventos"></div>
+  </div>
+</section>
+
+<!-- EVENTOS REALIZADOS -->
+<section class="secao secao-escura" id="realizados">
+  <div class="container">
+    <p class="tag">Memórias</p>
+    <h2>Eventos <span>realizados</span></h2>
+    <div class="realizados" id="listaRealizados"></div>
+  </div>
+</section>
+
+<!-- PÓDIOS -->
+<section class="secao" id="podios">
+  <div class="container">
+    <p class="tag">Conquistas</p>
+    <h2>Nossos <span>pódios</span></h2>
+    <div class="podios" id="listaPodios"></div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="secao secao-escura" id="galeria">
+  <div class="container">
+    <p class="tag">Fotos</p>
+    <h2>Corridas que <span>já fomos</span></h2>
+    <div class="albuns-abas" id="albunsAbas"></div>
+    <div class="galeria" id="listaGaleria"></div>
+  </div>
+</section>
+
+<!-- CALCULADORA -->
+<section class="secao" id="pace">
+  <div class="container calc">
+    <div>
+      <p class="tag">Ferramenta</p>
+      <h2>Calculadora de <span>pace</span></h2>
+      <p>Coloque a distância e o tempo da prova para descobrir seu ritmo por quilômetro e a previsão para outras distâncias.</p>
+    </div>
+    <form class="calc-form" id="calcForm">
+      <label>Distância
+        <select id="calcDist">
+          <option value="5">5 km</option>
+          <option value="6">6 km</option>
+          <option value="10" selected>10 km</option>
+          <option value="21.0975">Meia maratona (21,1 km)</option>
+          <option value="42.195">Maratona (42,2 km)</option>
+        </select>
+      </label>
+      <label>Tempo
+        <div class="calc-tempo">
+          <input id="calcH" type="number" min="0" value="0" aria-label="Horas"><span>h</span>
+          <input id="calcM" type="number" min="0" max="59" value="55" aria-label="Minutos"><span>min</span>
+          <input id="calcS" type="number" min="0" max="59" value="0" aria-label="Segundos"><span>s</span>
+        </div>
+      </label>
+      <div class="calc-resultado">
+        <div><small>Seu pace</small><strong id="calcPace">5:30</strong><small>/km</small></div>
+        <div><small>Velocidade</small><strong id="calcVel">10,9</strong><small>km/h</small></div>
+      </div>
+      <div class="calc-previsao" id="calcPrev"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ENTRAR -->
+<section class="secao entrar" id="entrar">
+  <div class="container entrar-box">
+    <div>
+      <p class="tag">Venha correr com a gente</p>
+      <h2>Comece <span>do zero</span> hoje</h2>
+      <p>Não importa o seu ritmo. Chama a gente no WhatsApp ou faça sua inscrição pelo QR Code.</p>
+      <div class="hero-acoes">
+        <a class="btn" id="btnWhats" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" id="btnInsta" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <img src="assets/img/qr-inscricao.png" alt="QR Code de inscrição" class="qr">
+  </div>
+</section>
+
+<!-- PARCEIROS -->
+<section class="secao parceiros-secao">
+  <div class="container">
+    <p class="tag centro">Parceiros</p>
+    <div class="parceiros" id="listaParceiros"></div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <img src="assets/img/logo.png" alt="Pace Zero">
+  <p>Correr junto, ir mais longe.</p>
+  <div class="rodape-links" id="rodapeLinks"></div>
+  <small>© 2026 Pace Zero Santa Cruz · Santa Cruz do Rio Pardo - SP</small>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-fechar" aria-label="Fechar">×</button>
+  <button class="lb-seta lb-ant" data-lb="-1" aria-label="Foto anterior">‹</button>
+  <img alt="">
+  <button class="lb-seta lb-prox" data-lb="1" aria-label="Próxima foto">›</button>
+</div>
+
+<script src="js/dados.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
