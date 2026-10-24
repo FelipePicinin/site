@@ -64,7 +64,7 @@ const PACE_ZERO = {
     },
 
       {
-      nome: "Aniversario de Ourinhos",
+      nome: "Aniversário de Ourinhos",
       data: "2026-12-13",
       hora: "08:00",
       cidade: "Ourinhos - SP",
@@ -74,7 +74,7 @@ const PACE_ZERO = {
     },
 
       {
-      nome: "Borra Corrida 4 Etapa",
+      nome: "Borra Corrida 4ª Etapa",
       data: "2026-12-20",
       hora: "07:30",
       cidade: "Assis - SP",
@@ -90,8 +90,8 @@ const PACE_ZERO = {
      - Depois que a data passa, o evento vai sozinho para "Eventos realizados"
      - fotos: opcional, aparecem no card do evento realizado */
   eventos: [
-    {
-     /* nome: "Lançamento do Pace Zero",
+   /* {
+      nome: "Lançamento do Pace Zero",
       data: "2026-06-13",
       hora: "07:00",
       local: "Praça da Matriz — Santa Cruz do Rio Pardo",
@@ -178,8 +178,8 @@ const PACE_ZERO = {
       distancia: "5 km",
       tempo: "27:05",
       foto: "assets/galeria/espirito-santo-do-turvo/1.jpg",
-    }, */
-  ],
+    }, 
+  ],*/
 
   parceiros: ["Seu Logo Aqui", "Academia Parceira", "Loja de Esportes", "Nutricionista"],
 };
