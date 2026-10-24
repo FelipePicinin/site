@@ -81,7 +81,7 @@ h1 span, h2 span { color: var(--laranja); }
 .corrida-data b { display: block; font-family: var(--titulo); font-size: 3rem; line-height: .9; color: var(--laranja); }
 .corrida-data span { text-transform: uppercase; font-weight: 700; letter-spacing: 2px; font-size: .8rem; }
 .corrida-data small { display: block; color: var(--texto-2); font-size: .72rem; text-transform: capitalize; }
-.corrida-img { height: 120px; border-radius: 10px; background-size: cover; background-position: center; }
+.corrida-img { width: 100%; height: 120px; border-radius: 10px; object-fit: cover; background: var(--preto); }
 .corrida h3 { font-size: 1.9rem; margin-bottom: .5rem; }
 .corrida-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; color: var(--texto-2); font-size: .9rem; margin-bottom: .7rem; }
 .corrida-meta .km-auto { color: var(--laranja-2); }
