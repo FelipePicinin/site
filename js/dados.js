@@ -15,8 +15,8 @@ const PACE_ZERO = {
 
   numeros: [
     { valor: "06/2026", rotulo: "Fundação" },
-    { valor: "40+", rotulo: "Atletas" },
-    { valor: "12", rotulo: "Provas disputadas" },
+    { valor: "150+", rotulo: "Atletas" },
+    { valor: "20", rotulo: "Provas disputadas" },
     { valor: "3.200", rotulo: "Km corridos juntos" },
   ],
 
@@ -28,11 +28,11 @@ const PACE_ZERO = {
     {
       nome: "Corrida de Irapé",
       data: "2026-10-24",
-      hora: "07:00",
+      hora: "17:00",
       cidade: "Irapé, Chavantes - SP",
       distancias: ["5 km"],
-      link: "#",
-      imagem: "assets/galeria/frutap/2.jpg",
+      link: "https://tvcomrunning.com.br/1-corrida-de-irape-117-anos-distrito-de-chavantes-sp",
+      imagem: "assets/galeria/Corridas/Irape.jpg",
     },
     {
       nome: "Corrida Noturna de Assis",
