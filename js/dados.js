@@ -7,15 +7,15 @@ const PACE_ZERO = {
   base: { nome: "Santa Cruz do Rio Pardo", lat: -22.8986, lon: -49.6325 },
 
   contato: {
-    instagram: "pacezeros",
-    whatsapp: "5514999999999", // trocar pelo número real (55 + DDD + número)
-    email: "contato@pacezero.com.br",
-    strava: "#",
+    instagram: "pacezerosantacruz",
+    whatsapp: "5514991889998", // trocar pelo número real (55 + DDD + número)
+    email: "pacezerosantacruz@gmail.com",
+    strava: "https://www.strava.com/clubs/2081699",
   },
 
   numeros: [
     { valor: "06/2026", rotulo: "Fundação" },
-    { valor: "150+", rotulo: "Atletas" },
+    { valor: "200+", rotulo: "Atletas" },
     { valor: "20", rotulo: "Provas disputadas" },
     { valor: "3.200", rotulo: "Km corridos juntos" },
   ],
@@ -35,23 +35,54 @@ const PACE_ZERO = {
       imagem: "assets/galeria/Corridas/Irape.jpg",
     },
     {
-      nome: "Corrida Noturna de Assis",
-      data: "2026-11-21",
-      hora: "19:30",
-      cidade: "Assis - SP",
-      distancias: ["5 km", "10 km"],
-      link: "#",
-      imagem: "assets/galeria/avenida-assis/2.jpg",
+      nome: "Meia Maratona de Barra Bonita",
+      data: "2026-11-01",
+      hora: "06:00",
+      cidade: "Barra Bonita - SP",
+      distancias: ["7 km", "21 km"],
+      link: "https://inscricoes.corridaeaventura.com.br/event/corrida-pedestre/1168-meia-maratona-solidaria-barra-bonita-2026",
+      imagem: "assets/galeria/Corridas/barra.jpg",
     },
     {
-      nome: "Meia Maratona de Ourinhos",
-      data: "2026-12-06",
-      hora: "06:30",
+      nome: "Unesp de Ourinhos",
+      data: "2026-11-08",
+      hora: "07:30",
       cidade: "Ourinhos - SP",
-      distancias: ["5 km", "10 km", "21 km"],
-      link: "#",
-      imagem: "assets/galeria/espirito-santo-do-turvo/1.jpg",
+      distancias: ["5 km"],
+      link: "https://tvcomrunning.com.br/7-circuito-de-corrida-e-caminhada-unesp-ourinhos",
+      imagem: "assets/galeria/Corridas/unesp.jpg",
     },
+
+      {
+      nome: "Flash Back Night Run",
+      data: "2026-11-14",
+      hora: "19:00",
+      cidade: "Assis - SP",
+      distancias: ["5 km"],
+      link: "https://tvcomrunning.com.br/flash-back-night-run-assis-sp",
+      imagem: "assets/galeria/Corridas/assis.jpg",
+    },
+
+      {
+      nome: "Aniversario de Ourinhos",
+      data: "2026-12-13",
+      hora: "08:00",
+      cidade: "Ourinhos - SP",
+      distancias: ["6 km"],
+      link: "https://streetracebrasil.com.br/vi-corrida-em-comemoracao-ao-aniversario-de-ourinhos",
+      imagem: "assets/galeria/Corridas/our.jpg",
+    },
+
+      {
+      nome: "Borra Corrida 4 Etapa",
+      data: "2026-12-20",
+      hora: "07:30",
+      cidade: "Assis - SP",
+      distancias: ["5 km"],
+      link: "https://streetracebrasil.com.br/desafio-2026-bora-corrida-4-etapa-conquista",
+      imagem: "assets/galeria/Corridas/bc4.jpg",
+    },
+     
   ],
 
   /* EVENTOS DO GRUPO
@@ -60,14 +91,14 @@ const PACE_ZERO = {
      - fotos: opcional, aparecem no card do evento realizado */
   eventos: [
     {
-      nome: "Lançamento do Pace Zero",
+     /* nome: "Lançamento do Pace Zero",
       data: "2026-06-13",
       hora: "07:00",
       local: "Praça da Matriz — Santa Cruz do Rio Pardo",
       descricao: "Primeiro treino oficial do grupo, com apresentação do uniforme e café da manhã.",
       emoji: "🚀",
       fotos: ["assets/galeria/avenida-assis/3.jpg", "assets/galeria/avenida-assis/1.jpg"],
-    },
+    }, */
     {
       nome: "Treinão Outubro Rosa",
       data: "2026-10-04",
@@ -75,25 +106,25 @@ const PACE_ZERO = {
       local: "Lago Municipal",
       descricao: "Todo mundo de rosa em apoio à campanha de prevenção ao câncer de mama.",
       emoji: "🎀",
-      fotos: ["assets/galeria/avenida-assis/2.jpg"],
+      fotos: ["assets/galeria/eventos/or.jpg"],
     },
     {
       nome: "Treino de Halloween",
       data: "2026-10-30",
-      hora: "19:00",
-      local: "Praça central — Santa Cruz do Rio Pardo",
+      hora: "20:00",
+      local: "Bairro Estação — Santa Cruz do Rio Pardo",
       descricao: "Todo mundo fantasiado! Treino leve, fotos e premiação para a melhor fantasia.",
       emoji: "🎃",
       destaque: true,
     },
-    {
+   /* {
       nome: "Treinão de Fim de Ano",
       data: "2026-12-19",
       hora: "06:30",
       local: "Lago Municipal",
       descricao: "Longão coletivo com café da manhã para fechar o ano juntos.",
       emoji: "🏃",
-    },
+    }, */
   ],
 
   galeria: [
@@ -119,7 +150,7 @@ const PACE_ZERO = {
   ],
 
   /* PÓDIOS — posicao: 1, 2 ou 3 (define a cor da medalha)
-     categoria: ex. "Geral", "Feminino 30-39" */
+     categoria: ex. "Geral", "Feminino 30-39" 
   podios: [
     {
       atleta: "Jordana",
@@ -147,7 +178,7 @@ const PACE_ZERO = {
       distancia: "5 km",
       tempo: "27:05",
       foto: "assets/galeria/espirito-santo-do-turvo/1.jpg",
-    },
+    }, */
   ],
 
   parceiros: ["Seu Logo Aqui", "Academia Parceira", "Loja de Esportes", "Nutricionista"],
