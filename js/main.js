@@ -1,4 +1,7 @@
 const D = PACE_ZERO;
+// Se alguma lista for apagada ou comentada no dados.js, trata como vazia em vez de quebrar o site
+for (const lista of ["numeros", "corridas", "eventos", "galeria", "podios", "parceiros"]) D[lista] ||= [];
+D.contato ||= {};
 const $ = (s) => document.querySelector(s);
 const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 
@@ -34,7 +37,7 @@ $("#listaCorridas").innerHTML = corridas.length
         <span>${MESES[c.quando.getMonth()]}</span>
         <small>${diaSemana(c.quando)}</small>
       </div>
-      <div class="corrida-img" style="background-image:url('${c.imagem || "assets/img/logo.png"}')"></div>
+      <img class="corrida-img" src="${c.imagem || "assets/img/logo.png"}" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/img/logo.png'">
       <div>
         ${i === 0 ? '<span class="selo">Próxima prova</span>' : ""}
         <h3>${c.nome}</h3>
@@ -133,7 +136,7 @@ $("#listaRealizados").innerHTML = realizados.length
         return `
   <article class="realizado revelar">
     <div class="realizado-foto" data-fotos='${JSON.stringify(e.fotos || [capa])}'>
-      <img src="${capa}" alt="${e.nome}" loading="lazy">${extras}
+      <img src="${capa}" alt="${e.nome}" loading="lazy" onerror="this.onerror=null;this.src='assets/img/logo.png'">${extras}
     </div>
     <div class="realizado-info">
       <span class="evento-data">${e.quando.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}</span>
@@ -146,8 +149,11 @@ $("#listaRealizados").innerHTML = realizados.length
       .join("")
   : `<p style="color:var(--texto-2)">Os eventos do grupo aparecem aqui depois que acontecem.</p>`;
 
-/* ---------- PÓDIOS ---------- */
-$("#listaPodios").innerHTML = D.podios
+/* ---------- PÓDIOS (seção some enquanto a lista estiver vazia) ---------- */
+if (!D.podios?.length) {
+  $("#podios").remove();
+  document.querySelector('a[href="#podios"]')?.remove();
+} else $("#listaPodios").innerHTML = D.podios
   .map(
     (p) => `
   <article class="podio p${p.posicao} revelar">
