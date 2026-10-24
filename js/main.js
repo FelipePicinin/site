@@ -234,7 +234,24 @@ const insta = `https://instagram.com/${D.contato.instagram}`;
 $("#btnWhats").href = whats;
 $("#btnInsta").href = insta;
 $("#rodapeLinks").innerHTML = `<a href="${insta}" target="_blank">Instagram</a><a href="${whats}" target="_blank">WhatsApp</a><a href="${D.contato.strava}" target="_blank">Strava</a><a href="mailto:${D.contato.email}">E-mail</a>`;
-$("#listaParceiros").innerHTML = D.parceiros.map((p) => `<div class="parceiro">${p}</div>`).join("");
+
+/* Patrocinadores: aceita só o nome ("Loja X") ou { nome, logo, link }.
+   Com link, o card abre o site do patrocinador em outra aba. */
+function mostrarParceiros() {
+  if (!D.parceiros.length) return $("#parceiros")?.remove();
+  $("#listaParceiros").innerHTML = D.parceiros
+    .map((p) => {
+      const { nome = "", logo, link } = typeof p === "string" ? { nome: p } : p;
+      const miolo = logo
+        ? `<img src="${logo}" alt="${nome}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:this.alt}))">`
+        : `<span>${nome}</span>`;
+      return link
+        ? `<a class="parceiro ${logo ? "com-logo" : ""}" href="${link}" target="_blank" rel="noopener" title="${nome}">${miolo}</a>`
+        : `<div class="parceiro ${logo ? "com-logo" : ""}" title="${nome}">${miolo}</div>`;
+    })
+    .join("");
+}
+mostrarParceiros();
 
 /* ---------- ANIMAÇÃO AO ROLAR ---------- */
 const obs = new IntersectionObserver((itens) =>
