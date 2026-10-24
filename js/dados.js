@@ -180,6 +180,29 @@ const PACE_ZERO = {
       foto: "assets/galeria/espirito-santo-do-turvo/1.jpg",
     }, 
   ],*/
+parceiros: [
+    {
+      nome: "Guacira Alimentos",
+      logo: "assets/parceiros/Guacira.jpg",
+      link: "https://instagram.com/alimentosguacira",
+    },
+    {
+      nome: "Anhanguera",
+      logo: "assets/parceiros/faculdade.jpg",
+      link: "https://instagram.com/anhanguera_santa_cruz_01",
+    },
 
-  parceiros: ["Seu Logo Aqui", "Academia Parceira", "Loja de Esportes", "Nutricionista"],
+    {
+      nome: "Pegasus",
+      logo: "assets/parceiros/pegasus.jpg",
+      link: "https://instagram.com/pegasusservicoscontabeis",
+    },
+
+    {
+      nome: "Santa cruz utilidades",
+      logo: "assets/parceiros/sc.jpg",
+      link: "https://instagram.com/santacruzutilidades",
+    },
+  ],
+  
 };
