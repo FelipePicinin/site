@@ -82,6 +82,16 @@ const PACE_ZERO = {
       link: "https://streetracebrasil.com.br/desafio-2026-bora-corrida-4-etapa-conquista",
       imagem: "assets/galeria/Corridas/bc4.jpg",
     },
+
+    {
+      nome: "Corrida de São Pedro do Turvo",
+      data: "2027-01-10",
+      hora: "08:00",
+      cidade: "São Pedro do Turvo - SP",
+      distancias: ["5 km"],
+      link: "https://streetracebrasil.com.br/2-sao-pedro-fest-run",
+      imagem: "assets/galeria/Corridas/spt.jpg",
+    },
      
   ],
 
