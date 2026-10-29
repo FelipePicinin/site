@@ -81,7 +81,7 @@ async function distanciaAte(cidade) {
 }
 
 document.querySelectorAll(".km-auto").forEach(async (el) => {
-  const texto = (km) => `🚗 ${km} km de Santa Cruz (ida e volta ${km * 2} km)`;
+  const texto = (km) => km <= 5 ? "🏠 Aqui em Santa Cruz" : `🚗 ${km} km de Santa Cruz (ida e volta ${km * 2} km)`;
   if (el.dataset.km) return (el.textContent = texto(el.dataset.km));
   try {
     el.textContent = texto(await distanciaAte(el.dataset.cidade));
