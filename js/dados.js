@@ -92,6 +92,16 @@ const PACE_ZERO = {
       link: "https://streetracebrasil.com.br/2-sao-pedro-fest-run",
       imagem: "assets/galeria/Corridas/spt.jpg",
     },
+
+    {
+      nome: "Corrida São Sebastião",
+      data: "2027-01-31",
+      hora: "07:30",
+      cidade: "Santa Cruz do Rio Pardo - SP",
+      distancias: ["6 km"],
+      link: "https://streetracebrasil.com.br/1-corrida-sao-sebastiao-2027",
+      imagem: "assets/galeria/Corridas/sss.jpg",
+    },
      
   ],
 
