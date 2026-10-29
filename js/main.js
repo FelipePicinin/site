@@ -22,7 +22,22 @@ $("#menu").addEventListener("click", (e) => e.target.tagName === "A" && $("#menu
 addEventListener("scroll", () => $("#topo").classList.toggle("rolado", scrollY > 40));
 
 /* ---------- NÚMEROS ---------- */
-$("#numeros").innerHTML = D.numeros.map((n) => `<div class="numero"><b>${n.valor}</b><span>${n.rotulo}</span></div>`).join("");
+// Provas e km com auto somam as corridas que já passaram depois de contarDesde
+const kmDe = (d) => parseFloat(String(d).replace(",", ".")) || 0;
+const disputadas = D.corridas
+  .map((c) => ({ ...c, quando: dataDe(c.data, c.hora) }))
+  .filter((c) => c.quando >= dataDe(D.contarDesde || "9999-12-31") && c.quando.getTime() + 86400000 <= Date.now());
+const somaAuto = {
+  provas: disputadas.length,
+  km: disputadas.reduce((t, c) => {
+    if (c.atletas && typeof c.atletas === "object")
+      return t + Object.entries(c.atletas).reduce((s, [d, n]) => s + kmDe(d) * n, 0);
+    return t + Math.max(0, ...(c.distancias || []).map(kmDe)) * (c.atletas || 1);
+  }, 0),
+};
+const valorDe = (n) =>
+  n.auto ? Math.round((Number(String(n.valor).replace(/\./g, "").replace(",", ".")) || 0) + somaAuto[n.auto]).toLocaleString("pt-BR") : n.valor;
+$("#numeros").innerHTML = D.numeros.map((n) => `<div class="numero"><b>${valorDe(n)}</b><span>${n.rotulo}</span></div>`).join("");
 
 /* ---------- CORRIDAS ---------- */
 const corridas = futuros(D.corridas);
@@ -169,10 +184,12 @@ if (!D.podios?.length) {
   .join("");
 
 /* ---------- GALERIA ---------- */
+// A aba "Todas" mostra só as 3 últimas fotos adicionadas
 function mostrarAlbum(indice) {
   const albuns = indice === -1 ? D.galeria : [D.galeria[indice]];
-  $("#listaGaleria").innerHTML = albuns
-    .flatMap((al) => al.fotos.map((f) => `<figure class="foto" data-foto="${f}"><img src="${f}" alt="${al.nome}" loading="lazy"><figcaption>${al.nome}</figcaption></figure>`))
+  const fotos = albuns.flatMap((al) => al.fotos.map((f) => ({ f, nome: al.nome })));
+  $("#listaGaleria").innerHTML = (indice === -1 ? fotos.slice(-3) : fotos)
+    .map(({ f, nome }) => `<figure class="foto" data-foto="${f}"><img src="${f}" alt="${nome}" loading="lazy"><figcaption>${nome}</figcaption></figure>`)
     .join("");
   document.querySelectorAll(".albuns-abas button").forEach((b) => b.classList.toggle("ativo", Number(b.dataset.i) === indice));
 }
@@ -233,6 +250,8 @@ const whats = `https://wa.me/${D.contato.whatsapp}?text=${encodeURIComponent("Ol
 const insta = `https://instagram.com/${D.contato.instagram}`;
 $("#btnWhats").href = whats;
 $("#btnInsta").href = insta;
+if (D.contato.strava) $("#btnStrava").href = D.contato.strava;
+else $("#btnStrava").remove();
 $("#rodapeLinks").innerHTML = `<a href="${insta}" target="_blank">Instagram</a><a href="${whats}" target="_blank">WhatsApp</a><a href="${D.contato.strava}" target="_blank">Strava</a><a href="mailto:${D.contato.email}">E-mail</a>`;
 
 /* Patrocinadores: aceita só o nome ("Loja X") ou { nome, logo, link }.
