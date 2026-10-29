@@ -74,7 +74,7 @@ const PACE_ZERO = {
     },
 
       {
-      nome: "Borra Corrida 4ª Etapa",
+      nome: "Bora Corrida 4ª Etapa",
       data: "2026-12-20",
       hora: "07:30",
       cidade: "Assis - SP",
