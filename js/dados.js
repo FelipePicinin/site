@@ -13,6 +13,10 @@ const PACE_ZERO = {
     strava: "https://www.strava.com/clubs/2081699",
   },
 
+  // Contador de visitas: crie a conta grátis em goatcounter.com e coloque aqui o código escolhido
+  // (ex.: "pacezero" para pacezero.goatcounter.com). Vazio = desligado.
+  goatcounter: "",
+
   /* NÚMEROS
      - "Provas disputadas" e "Km corridos juntos" sobem sozinhos: cada corrida
        da lista que já passou (com data depois de contarDesde) soma 1 prova
