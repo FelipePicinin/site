@@ -208,8 +208,8 @@ a.parceiro:hover img { transform: scale(1.05); }
   .sobre, .calc { grid-template-columns: 1fr; gap: 2.5rem; }
   .corrida { grid-template-columns: 100px 1fr; }
   .corrida-img { display: none; }
-  .corrida-acoes { grid-column: 1 / -1; flex-direction: row; padding: 0; }
-  .corrida-acoes .btn { flex: 1; justify-content: center; }
+  .corrida-acoes { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; padding: 0; }
+  .corrida-acoes .btn { flex: 1 1 40%; justify-content: center; }
 }
 @media (max-width: 600px) {
   .topo-logo img { height: 44px; }
