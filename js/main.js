@@ -218,7 +218,7 @@ if (!D.podios?.length) {
       <small>${p.categoria}</small>
       <h3>${p.atleta}</h3>
       <p>${p.corrida} · ${p.distancia}</p>
-      <div class="podio-tempo"><span>Tempo</span><b>${p.tempo}</b></div>
+      ${p.tempo ? `<div class="podio-tempo"><span>Tempo</span><b>${p.tempo}</b></div>` : ""}
     </div>
   </article>`
   )
