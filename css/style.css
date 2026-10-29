@@ -102,11 +102,12 @@ h1 span, h2 span { color: var(--laranja); }
 
 /* PÓDIOS */
 .podios { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
-.podio { --medalha: #cd7f32; background: var(--cinza); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; transition: .25s; }
+.podio { --medalha: var(--laranja); background: var(--cinza); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; transition: .25s; }
 .podio.p1 { --medalha: #f5c542; }
 .podio.p2 { --medalha: #c9ced6; }
+.podio.p3 { --medalha: #cd7f32; }
 .podio:hover { border-color: var(--medalha); transform: translateY(-4px); }
-.podio-foto { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: zoom-in; }
+.podio-foto { position: relative; aspect-ratio: 4/5; overflow: hidden; cursor: zoom-in; }
 .podio-foto img { width: 100%; height: 100%; object-fit: cover; transition: .4s; }
 .podio:hover .podio-foto img { transform: scale(1.05); }
 .medalha { position: absolute; top: .8rem; left: .8rem; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: var(--medalha); color: #111; font-family: var(--titulo); font-weight: 900; font-size: 1.6rem; box-shadow: 0 0 0 4px #0008, 0 8px 20px #0009; }
