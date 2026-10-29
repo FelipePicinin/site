@@ -195,38 +195,46 @@ const PACE_ZERO = {
     },
   ],
 
-  /* PÓDIOS — posicao: 1, 2 ou 3 (define a cor da medalha)
-     categoria: ex. "Geral", "Feminino 30-39" 
+  /* PÓDIOS — posicao: 1º ouro, 2º prata, 3º bronze; do 4º em diante a medalha fica laranja
+     categoria: ex. "Geral feminino", "Categoria 35 a 39"
+     tempo: opcional
+     Lista vazia [] esconde a seção. */
   podios: [
     {
-      atleta: "Jordana",
-      posicao: 1,
-      categoria: "Feminino 25-29",
-      corrida: "Corrida Frutap",
-      distancia: "5 km",
-      tempo: "24:38",
-      foto: "assets/galeria/frutap/1.jpg",
-    },
-    {
-      atleta: "Uelton",
+      atleta: "Equipe Pace Zero",
       posicao: 2,
-      categoria: "Masculino 35-39",
-      corrida: "Corrida Avenida Assis",
-      distancia: "10 km",
-      tempo: "44:12",
-      foto: "assets/galeria/avenida-assis/1.jpg",
+      categoria: "Maior equipe",
+      corrida: "Corrida de Irapé",
+      distancia: "5 km",
+      foto: "assets/galeria/Irape/3.jpg",
     },
     {
-      atleta: "Keli",
-      posicao: 3,
-      categoria: "Feminino 40-44",
-      corrida: "Corrida Espírito Santo do Turvo",
+      atleta: "Leandro",
+      posicao: 2,
+      categoria: "Categoria 35 a 39",
+      corrida: "Corrida de Irapé",
       distancia: "5 km",
-      tempo: "27:05",
-      foto: "assets/galeria/espirito-santo-do-turvo/1.jpg",
-    }, 
-  ],*/
-parceiros: [
+      foto: "assets/galeria/Podi/i1.jpg",
+    },
+    {
+      atleta: "Jordana",
+      posicao: 4,
+      categoria: "Geral feminino",
+      corrida: "Corrida de Irapé",
+      distancia: "5 km",
+      foto: "assets/galeria/Podi/i3.jpg",
+    },
+    {
+      atleta: "Rayanne",
+      posicao: 5,
+      categoria: "Categoria 30 a 34",
+      corrida: "Corrida de Irapé",
+      distancia: "5 km",
+      foto: "assets/galeria/Podi/i2.jpg",
+    },
+  ],
+
+  parceiros: [
     {
       nome: "Guacira Alimentos",
       logo: "assets/parceiros/Guacira.jpg",
@@ -234,7 +242,7 @@ parceiros: [
     },
     {
       nome: "Anhanguera",
-      logo: "assets/parceiros/faculdade.jpg",
+      logo: "assets/parceiros/anhanguera.jpeg",
       link: "https://instagram.com/anhanguera_santa_cruz_01",
     },
 
@@ -248,6 +256,12 @@ parceiros: [
       nome: "Santa cruz utilidades",
       logo: "assets/parceiros/sc.jpg",
       link: "https://instagram.com/santacruzutilidades",
+    },
+
+    {
+      nome: "Bruna Honorato Studio de Pilates",
+      logo: "assets/parceiros/bruna.jpeg",
+      link: "",
     },
   ],
   
