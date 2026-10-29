@@ -147,6 +147,18 @@ const PACE_ZERO = {
       data: "2026-10-13",
       fotos: ["assets/galeria/frutap/1.jpg", "assets/galeria/frutap/2.jpg"],
     },
+
+     {
+      nome: "Corrida Irape",
+      data: "2026-10-24",
+      fotos: [
+        "assets/galeria/Irape/1.jpg",
+        "assets/galeria/Irape/2.jpg",
+        "assets/galeria/Irape/3.jpg",
+         "assets/galeria/Irape/4.jpg",
+         "assets/galeria/Irape/5.jpg",
+      ],
+    },
   ],
 
   /* PÓDIOS — posicao: 1, 2 ou 3 (define a cor da medalha)
