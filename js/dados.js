@@ -15,7 +15,7 @@ const PACE_ZERO = {
 
   // Contador de visitas: crie a conta grátis em goatcounter.com e coloque aqui o código escolhido
   // (ex.: "pacezero" para pacezero.goatcounter.com). Vazio = desligado.
-  goatcounter: "",
+  goatcounter: "felipepicinin",
 
   /* NÚMEROS
      - "Provas disputadas" e "Km corridos juntos" sobem sozinhos: cada corrida
