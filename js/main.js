@@ -42,6 +42,45 @@ $("#numeros").innerHTML = D.numeros.map((n) => `<div class="numero"><b>${valorDe
 /* ---------- CORRIDAS ---------- */
 const corridas = futuros(D.corridas);
 
+/* Compartilhar no WhatsApp e salvar na agenda.
+   No iPhone a agenda vem como arquivo .ics (abre direto no Calendário); nos outros, Google Agenda. */
+const doisDig = (n) => String(n).padStart(2, "0");
+const carimbo = (d) => `${d.getFullYear()}${doisDig(d.getMonth() + 1)}${doisDig(d.getDate())}T${doisDig(d.getHours())}${doisDig(d.getMinutes())}00`;
+const ehIphone = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && "ontouchend" in document);
+const fimDe = (c) => new Date(c.quando.getTime() + 3 * 3600000);
+const detalhesDe = (c) => `Distâncias: ${c.distancias.join(" / ")}\nInscrição: ${c.link}`;
+
+const linkWhats = (c) =>
+  "https://wa.me/?text=" +
+  encodeURIComponent(
+    `🏃 ${c.nome}\n📅 ${dataLonga(c.quando)} às ${c.hora}\n📍 ${c.cidade}\n📏 ${c.distancias.join(" / ")}\n📝 Inscrição: ${c.link}\n\nBora junto com o Pace Zero! 🧡\nhttps://pacezero.com.br/#corridas`
+  );
+
+const linkAgenda = (c) =>
+  "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  `&text=${encodeURIComponent(c.nome)}&dates=${carimbo(c.quando)}/${carimbo(fimDe(c))}&ctz=America/Sao_Paulo` +
+  `&location=${encodeURIComponent(c.cidade)}&details=${encodeURIComponent(detalhesDe(c))}`;
+
+function icsDe(c) {
+  const esc = (s) => String(s).replace(/[\\,;]/g, (m) => "\\" + m).replace(/\n/g, "\\n");
+  return [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Pace Zero//PT-BR", "BEGIN:VEVENT",
+    `UID:${c.data}-${c.nome.replace(/\W/g, "")}@pacezero.com.br`,
+    `DTSTAMP:${new Date().toISOString().replace(/[-:]|\.\d+/g, "")}`,
+    `DTSTART:${carimbo(c.quando)}`, `DTEND:${carimbo(fimDe(c))}`,
+    `SUMMARY:${esc(c.nome)}`, `LOCATION:${esc(c.cidade)}`, `DESCRIPTION:${esc(detalhesDe(c))}`,
+    "BEGIN:VALARM", "TRIGGER:-P1D", "ACTION:DISPLAY", `DESCRIPTION:${esc(c.nome)} é amanhã`, "END:VALARM",
+    "END:VEVENT", "END:VCALENDAR",
+  ].join("\r\n");
+}
+
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-agenda]");
+  if (!a || !ehIphone) return;
+  e.preventDefault();
+  location.href = URL.createObjectURL(new Blob([icsDe(corridas[a.dataset.agenda])], { type: "text/calendar" }));
+});
+
 $("#listaCorridas").innerHTML = corridas.length
   ? corridas
       .map(
@@ -64,9 +103,11 @@ $("#listaCorridas").innerHTML = corridas.length
         <div class="chips">${c.distancias.map((d) => `<span class="chip">${d}</span>`).join("")}</div>
       </div>
       <div class="corrida-acoes">
-        <a class="btn btn-sm" href="${c.link}" target="_blank" rel="noopener">Inscrição</a>
+        <a class="btn btn-sm" href="${c.link}" target="_blank" rel="noopener" data-goatcounter-click="inscricao: ${c.nome}">Inscrição</a>
         <a class="btn btn-sm btn-ghost" target="_blank" rel="noopener"
            href="https://www.google.com/maps/dir/${encodeURIComponent(D.base.nome + " SP")}/${encodeURIComponent(c.cidade)}">Como chegar</a>
+        <a class="btn btn-sm btn-ghost" href="${linkWhats(c)}" target="_blank" rel="noopener" data-goatcounter-click="compartilhar: ${c.nome}">Compartilhar</a>
+        <a class="btn btn-sm btn-ghost" href="${linkAgenda(c)}" target="_blank" rel="noopener" data-agenda="${i}" data-goatcounter-click="agenda: ${c.nome}">Agenda</a>
       </div>
     </article>`
       )
@@ -276,3 +317,11 @@ mostrarParceiros();
 const obs = new IntersectionObserver((itens) =>
   itens.forEach((i) => i.isIntersecting && (i.target.classList.add("visivel"), obs.unobserve(i.target))), { threshold: 0.12 });
 document.querySelectorAll(".revelar").forEach((el) => obs.observe(el));
+/* ---------- CONTADOR DE VISITAS (GoatCounter) ---------- */
+if (D.goatcounter) {
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.dataset.goatcounter = `https://${D.goatcounter}.goatcounter.com/count`;
+  document.head.append(s);
+}
