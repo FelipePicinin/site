@@ -13,17 +13,27 @@ const PACE_ZERO = {
     strava: "https://www.strava.com/clubs/2081699",
   },
 
+  /* NÚMEROS
+     - "Provas disputadas" e "Km corridos juntos" sobem sozinhos: cada corrida
+       da lista que já passou (com data depois de contarDesde) soma 1 prova
+       e distância × atletas em km
+     - o valor escrito aqui é o total até a data de contarDesde */
+  contarDesde: "2026-10-29",
   numeros: [
     { valor: "06/2026", rotulo: "Fundação" },
     { valor: "200+", rotulo: "Atletas" },
-    { valor: "20", rotulo: "Provas disputadas" },
-    { valor: "3.200", rotulo: "Km corridos juntos" },
+    { valor: "20", rotulo: "Provas disputadas", auto: "provas" },
+    { valor: "3.200", rotulo: "Km corridos juntos", auto: "km" },
   ],
 
   /* PRÓXIMAS CORRIDAS
      - data: "AAAA-MM-DD", hora: "HH:MM"
      - cidade: a distância a partir de Santa Cruz é calculada sozinha
-     - distanciaKm: opcional, só preencha se quiser forçar um valor */
+     - distanciaKm: opcional, só preencha se quiser forçar um valor
+     - atletas: depois da prova, coloque quantos do grupo correram. Ex.: atletas: 12
+       Com mais de uma distância: atletas: { "7 km": 8, "21 km": 3 }
+       Sem atletas, a prova soma só a maior distância nos km
+     - não apague corridas que já passaram: elas somam nos números */
   corridas: [
     {
       nome: "Corrida de Irapé",
